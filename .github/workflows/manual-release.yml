@@ -3,6 +3,11 @@ name: Manually Create Release
 on:
   workflow_dispatch:
 
+inputs:
+  release_name: 
+    description: Release name to create
+    required: true
+
 permissions:
   contents: write
 
@@ -14,7 +19,7 @@ jobs:
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
-          tag: ${{ github.run_number }}
+          tag: ${{ inputs.release_name }}
         run: |
           gh release create "$tag" \
               --repo="$GITHUB_REPOSITORY" \
