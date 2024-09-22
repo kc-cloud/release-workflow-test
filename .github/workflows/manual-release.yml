@@ -2,11 +2,10 @@ name: Manually Create Release
 
 on:
   workflow_dispatch:
-
-inputs:
-  release_name: 
-    description: Release name to create
-    required: true
+    inputs:
+      release_name: 
+        description: Release name to create
+        required: true
 
 permissions:
   contents: write
