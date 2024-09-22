@@ -1,0 +1,21 @@
+name: Labeler
+on: 
+  pull_request
+
+env:
+  GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
+
+jobs:
+  label:
+    name: Label Pull Request
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+    - name: Apply feature label
+      run: gh pr edit ${{ github.event.number }} --add-label "feature"
+      if: contains(github.event.pull_request.title, "feat:")
+    - name: Apply feature label
+      run: gh pr edit ${{ github.event.number }} --add-label "bug"
+      if: contains(github.event.pull_request.title, "fix:")
