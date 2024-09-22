@@ -14,8 +14,8 @@ jobs:
       pull-requests: write
     steps:
     - name: Apply feature label
-      run: gh pr edit ${{ github.event.number }} --add-label "feature" --repo "$GITHUB_REPOSITORY"
-      if: contains(github.event.pull_request.title, 'feat')
+      run: gh pr edit ${{ github.event.number }} --add-label "enhancement" --repo "$GITHUB_REPOSITORY"
+      if: contains(github.event.pull_request.title, 'feature')
     - name: Apply feature label
       run: gh pr edit ${{ github.event.number }} --add-label "bug" --repo "$GITHUB_REPOSITORY"
       if: contains(github.event.pull_request.title, 'fix')
