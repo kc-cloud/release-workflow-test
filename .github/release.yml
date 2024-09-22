@@ -6,7 +6,7 @@ changelog:
     - title: Bug Fixes
       labels:
         - bug
-    - title: Other Changes
+    - title: All Other Changes
       labels:
         - "*"
       exclude:
