@@ -15,7 +15,7 @@ jobs:
     steps:
     - name: Apply feature label
       run: gh pr edit ${{ github.event.number }} --add-label "feature"
-      if: contains(github.event.pull_request.title, "feat:")
+      if: contains(github.event.pull_request.title, 'feat')
     - name: Apply feature label
       run: gh pr edit ${{ github.event.number }} --add-label "bug"
-      if: contains(github.event.pull_request.title, "fix:")
+      if: contains(github.event.pull_request.title, 'fix')
